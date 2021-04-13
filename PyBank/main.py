@@ -54,6 +54,8 @@ NetTotalProfitLosses = 0
 with open(csvpath) as csvfile:
     csvreader = csv.reader(csvfile, delimiter = ',')
 
+    next(csvreader)
+
     # Loop through rows in csv file
     for row in csvreader:
         
@@ -61,7 +63,12 @@ with open(csvpath) as csvfile:
         TotalMonthsCounter = TotalMonthsCounter + 1
 
         # Add monthly Profit/Loss to NetTotalProfitLosses
-        NetTotalProfitLosses = NetTotalProfitLosses + row[1]
-
+        NetTotalProfitLosses = NetTotalProfitLosses + int(row[1])
+        
         # Calculate monthly change in profit/loss
 
+print("Financial Analysis")
+print("----------------------------")
+print("Total Months: " + str(TotalMonthsCounter))
+print("Total: $" + str(NetTotalProfitLosses))
+print("----------------------------")
