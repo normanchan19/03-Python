@@ -11,3 +11,6 @@ Added main.py for pybank task.
 4/13
 Working on main.py for pybank. Added counters and pseudo-code.
 Set up loop to go through each row, finished total months counter, finished net profit/loss counter, and results print statements for the two finished counters.
+
+4/14
+Finished main.py for PyBank (yes this one exports the results to .txt). Added PyBankResults.txt.
