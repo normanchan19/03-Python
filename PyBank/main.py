@@ -125,14 +125,14 @@ with open(csvpath) as csvfile:
 
 # Print results in terminal
 
-# print("Financial Analysis")
-# print("----------------------------")
-# print("Total Months: " + str(TotalMonthsCounter))
-# print("Total: $" + str(NetTotalProfitLosses))
-# print("Average Change: $" + str(AverageChangeInProfitLosses))
-# print("Greatest Increase in Profits: " + MonthOfGreatestIncreaseInProfits + " $" + str(GreatestIncreaseInProfits))
-# print("Greatest Decrease in Profits: " + MonthOfGreatestDecreaseInProfits + " $" + str(GreatestDecreaseInProfits))
-# print("----------------------------")
+print("Financial Analysis")
+print("----------------------------")
+print("Total Months: " + str(TotalMonthsCounter))
+print("Total: $" + str(NetTotalProfitLosses))
+print("Average Change: $" + str(AverageChangeInProfitLosses))
+print("Greatest Increase in Profits: " + MonthOfGreatestIncreaseInProfits + " $" + str(GreatestIncreaseInProfits))
+print("Greatest Decrease in Profits: " + MonthOfGreatestDecreaseInProfits + " $" + str(GreatestDecreaseInProfits))
+print("----------------------------")
 
 # Export results in text file
 
