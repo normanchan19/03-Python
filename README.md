@@ -14,3 +14,4 @@ Set up loop to go through each row, finished total months counter, finished net 
 
 4/14
 Finished main.py for PyBank (yes this one exports the results to .txt). Added PyBankResults.txt.
+PyBank main.py now prints to terminal.
