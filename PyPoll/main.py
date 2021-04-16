@@ -43,9 +43,14 @@ import csv
 # Set file path
 csvpath = os.path.join('Resources', 'election_data.csv')
 
-# Set variables
+# Create dictionary with candidate as key and votes received as value
 CandidatesAndVotes = {}
-ZeroVote = 0
+# Candidates is just candidate names
+Candidates = []
+# List of just vote numbers for each candidate
+Votes = []
+# List of vote percentages for each candidate
+VotePercentage = []
 
 # Open csv file
 with open(csvpath) as csvfile:
@@ -55,13 +60,58 @@ with open(csvpath) as csvfile:
 
     # Loop through rows in csv file
     for row in csvreader:
+
+        # If candidate is already in dictionary
+
         if row[2] in CandidatesAndVotes:
+
+            # Add a vote to the candidate's value
             CandidatesAndVotes[row[2]] += 1
+
         else:
+
+            # Add new candidate to dictionary and set value to 1
             CandidatesAndVotes[row[2]] = 1
         
+    # Find total votes cast in whole election
     TotalVotes = sum(CandidatesAndVotes.values())
-        # NORMAN USE DICTIONARIES, CANDIDATE IS KEY AND VOTES ARE VALUES
 
-print(TotalVotes)
-print(CandidatesAndVotes.items())
+    # Candidates is list of candidates
+    Candidates = list(CandidatesAndVotes.keys())
+
+    # Votes is list of vote number for each candidate
+    Votes = list(CandidatesAndVotes.values())
+
+    # Convert Votes list into vote percentage
+    VotePercentage = [round(i / TotalVotes * 100, 3) for i in Votes]
+
+    # Determine winner of election based on who got highest percent vote
+    Winner = Candidates[VotePercentage.index(max(VotePercentage))]
+
+#---------------------------------------------
+
+# Print results in terminal
+
+print("Election Results")
+print("-------------------------")
+print("Total Votes:" + str(TotalVotes))
+print("-------------------------")
+for i in range(len(Candidates)):
+    print(Candidates[i] + ":" + str(VotePercentage[i]) + "%" + " (" + str(Votes[i]) + ")")
+print("-------------------------")
+print("Winner: " + Winner)
+
+#---------------------------------------------
+
+# Export results in text file
+
+file = open("PyPollResults.txt", "w")
+
+file.write("Election Results\n")
+file.write("-------------------------\n")
+file.write("Total Votes:" + str(TotalVotes) + "\n")
+file.write("-------------------------\n")
+for i in range(len(Candidates)):
+    file.write(Candidates[i] + ":" + str(VotePercentage[i]) + "%" + " (" + str(Votes[i]) + ")\n")
+file.write("-------------------------\n")
+file.write("Winner: " + Winner)
