@@ -18,3 +18,8 @@ PyBank main.py now prints to terminal.
 
 4/15
 Added PyPoll's associated work. PyPoll's main.py has the candidate-vote count dictionary set up and can track total votes and number of votes for each candidate.
+
+4/16
+Finished PyPoll's main.py. Added PyPollResults.txt.
+
+THINK I'M DONE
